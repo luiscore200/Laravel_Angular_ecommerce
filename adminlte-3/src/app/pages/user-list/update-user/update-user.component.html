@@ -1,0 +1,51 @@
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Update user </h5>
+        <button type="button" class="close"aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  id="form" [formGroup]="form">
+            <div class="alert alert-danger" [hidden]="!error">{{error}}</div>
+
+            <div class="mb-3">
+                <label for="inputName3" class="form-label">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="inputName3" placeholder="Name"
+                    [ngClass]="{
+                        'is-invalid': nameControl.invalid && nameControl.touched,
+                        'is-valid': nameControl.valid && nameControl.touched
+                    }">
+                <div class="invalid-feedback" *ngIf="nameControl.invalid && nameControl.touched">
+                    <div *ngIf="nameControl.hasError('required')">El campo es requerido</div>
+                    <div *ngIf="nameControl.hasError('maxLength')">Ha excedido el número de caracteres</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputEmail3" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="inputEmail3" placeholder="Email"
+                    readonly>
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="inputRole" class="form-label">Role</label>
+                <select name="role" class="form-control" id="inputRole" formControlName="role">
+                    <option *ngFor="let item of roles" [value]="item.name">{{item.name}}</option>
+                </select>
+            </div>
+
+        
+           
+
+         
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"  (click)="close()">Close</button>
+        <button type="button" class="btn btn-primary" [disabled]="form.invalid"  (click)="onSubmit()">Save changes</button>
+      </div>
+    </div>

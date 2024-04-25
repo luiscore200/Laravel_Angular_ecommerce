@@ -1,0 +1,49 @@
+<div class="bg-gray-100">
+
+
+    <div >
+        <app-header></app-header>
+    </div>
+
+    <div class="py-40 border  grid justify-items-center" >
+         
+        
+
+<div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+        <div *ngIf="error" >
+            <div  class="bg-red-50 mb-6 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500">{{error}}</div>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+          <input type="email" formControlName="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-500 text-sm rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" placeholder="Your email">
+          <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)" class="text-red-500 text-sm mt-1">
+            <div *ngIf="emailControl.errors?.required">Email is required</div>
+            <div *ngIf="emailControl.errors?.email">Invalid email format</div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+          <input type="password" formControlName="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-500 text-sm rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" placeholder="Your password">
+          <div *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)" class="text-red-500 text-sm mt-1">
+            <div *ngIf="passwordControl.errors?.required">Password is required</div>
+          </div>
+        </div>
+        <div class="mb-6">
+          <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md">Login</button>
+        </div>
+     
+      </form>
+      
+</div>
+
+    </div>
+
+    
+    
+     <div class="">
+        <app-footer></app-footer>
+    </div>
+    
+    </div>

@@ -1,0 +1,82 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"> Register </h5>
+      <button type="button" class="close"aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form  id="form" [formGroup]="form">
+          <div class="alert alert-danger" [hidden]="!error">{{error}}</div>
+
+          <div class="mb-3">
+              <label for="inputName3" class="form-label">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="inputName3" placeholder="Name"
+                  [ngClass]="{
+                      'is-invalid': nameControl.invalid && nameControl.touched,
+                      'is-valid': nameControl.valid && nameControl.touched
+                  }">
+              <div class="invalid-feedback" *ngIf="nameControl.invalid && nameControl.touched">
+                  <div *ngIf="nameControl.hasError('required')">El campo es requerido</div>
+                  <div *ngIf="nameControl.hasError('maxLength')">Ha excedido el número de caracteres</div>
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="inputPrice3" class="form-label">Price</label>
+            <input type="number" formControlName="price" class="form-control" id="inputPrice3" placeholder="Price"
+                [ngClass]="{
+                    'is-invalid': priceControl.invalid && priceControl.touched,
+                    'is-valid': priceControl.valid && priceControl.touched
+                }">
+            <div class="invalid-feedback" *ngIf="nameControl.invalid && nameControl.touched">
+                <div *ngIf="priceControl.hasError('required')">El campo es requerido</div>
+                <div *ngIf="priceControl.hasError('maxLength')">Ha excedido el número de caracteres</div>
+            </div>
+        </div>
+
+         
+
+          <div class="mb-3">
+              <label for="inputCategory" class="form-label">Category</label>
+              <select name="category" class="form-control" id="inputCategory" formControlName="category">
+                  <option *ngFor="let item of categories" [value]="item.name">{{item.name}}</option>
+              </select>
+          </div>
+
+
+          
+          <div class="mb-3">
+            <label for="inputDescription" class="form-label">Description</label>
+            <textarea formControlName="description" class="form-control" id="inputDescription" placeholder="Description"
+                [ngClass]="{
+                    'is-invalid': descriptionControl.invalid && descriptionControl.touched,
+                    'is-valid': descriptionControl.valid && descriptionControl.touched
+                }"></textarea>
+            <div class="invalid-feedback" *ngIf="descriptionControl.invalid && descriptionControl.touched">
+                <div *ngIf="descriptionControl.hasError('required')">El campo es requerido</div>
+                <div *ngIf="descriptionControl.hasError('maxLength')">Ha excedido el número de caracteres</div>
+            </div>
+        </div>
+        
+
+          <div class="mb-3">
+            <label for="inputImage" class="form-label">Image</label>
+            <input type="file" formControlName="image" class="form-control" (change)="onTarget($event)" id="inputImage" accept="image/*" 
+                [ngClass]="{
+                    'is-invalid': imageControl.invalid && imageControl.touched,
+                    'is-valid': imageControl.valid && imageControl.touched
+                }">
+            <div class="invalid-feedback" *ngIf="imageControl.invalid && imageControl.touched">
+                <div *ngIf="imageControl.hasError('required')">El campo es requerido</div>
+            </div>
+        </div>
+
+       
+      </form>
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"  (click)="close()">Close</button>
+      <button type="button" class="btn btn-primary" [disabled]="form.invalid"  (click)="onSubmit()">Save changes</button>
+    </div>
+  </div>
