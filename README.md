@@ -3,7 +3,7 @@ Laravel Back: Jwt(autentification), SpatieRoles(Autorization), MercadoPago(Payme
             Models: JWT, Roles, User, Category, Product, Preference, Transactions
             RelationShips: User<->Roles, Product<-Category.
                           Roles:Admin,User.
-              Aquí tienes un diagrama de las rutas API que has proporcionado:
+         
 
               /auth
               │
