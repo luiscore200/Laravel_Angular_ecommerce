@@ -1,8 +1,8 @@
 
-Laravel Back: Jwt(autentification), SpatieRoles(Autorization), MercadoPago(Payment Gateway)
-            Models: JWT, Roles, User, Category, Product, Preference, Transactions
-            RelationShips: User<->Roles, Product<-Category.
-                          Roles:Admin,User.
+            Laravel Back: Jwt(autentification), SpatieRoles(Autorization), MercadoPago(Payment Gateway)
+            Models: JWT, Roles, User, Category, Product, Preference, Transactions            
+            RelationShips: User<->Roles, Product<-Category.            
+                                      Roles:Admin,User.
          
 
               /auth
